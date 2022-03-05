@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  button {
+    padding: 0.5rem 2rem;
+    text-transform: capitalize;
+  }
+  input {
+    padding: 0 1rem;
+    &::placeholder {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  gap: 5rem;
+}
+
+.nodes {
+  display: flex;
+  flex-direction: column;
+  & > div {
+    display: flex;
+    img {
+      width: 4rem;
+      padding: 0 0.5rem;
+    }
+  }
+}
+.index {
+  align-self: center;
+  margin-top: 1rem;
+}
+.data {
+  border: 1px solid #000;
+  height: 6rem;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 3rem 3rem;
+}
+
+.elements {
+  margin-top: 5rem;
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+}

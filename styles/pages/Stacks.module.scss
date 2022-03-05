@@ -1,0 +1,41 @@
+.nodes {
+  display: flex;
+  flex-direction: column;
+  // &:not(:last-child) {
+  //   margin-right: 0.2rem;
+  // }
+}
+.index {
+  align-self: center;
+  margin-top: 1rem;
+}
+.data {
+  border: 1px solid #000;
+  height: 6rem;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 3rem 3rem;
+}
+
+.elements {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  button {
+    padding: 0.5rem 2rem;
+    text-transform: capitalize;
+  }
+  input {
+    padding: 0 1rem;
+    &::placeholder {
+      text-transform: capitalize;
+    }
+  }
+}
