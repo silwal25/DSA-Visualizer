@@ -1,11 +1,12 @@
-import styles from "../../styles/pages/BubbleSort.module.scss"
+import styles from "../../styles/pages/SelectionSort.module.scss"
 
-import { useEffect, useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
+
 import Bar from "../../components/Bar/Bar"
 
-export default function BubbleSort() {
+export default function SelectionSort() {
   const [data, setData] = useState([])
-  const [size, setSize] = useState(100)
+  const [size, setSize] = useState(50)
   const [delay, setDelay] = useState(10)
   const arraySize = useRef(null)
   const delayRef = useRef()
@@ -19,21 +20,32 @@ export default function BubbleSort() {
     e.preventDefault()
     let temp
     let arr = data
-    for (let i = 0; i < arr.length - 1; i++) {
-      for (let j = 0; j < arr.length - i - 1; j++) {
+    let min
+    let i, j
+    for (i = 0; i < arr.length - 1; i++) {
+      min = i
+      document.querySelector(`#${arr[min].index}`).classList.add("selected")
+      for (j = i + 1; j < arr.length; j++) {
         document.querySelector(`#${arr[j].index}`).classList.add("selected")
-        document.querySelector(`#${arr[j + 1].index}`).classList.add("selected")
-        if (arr[j].value > arr[j + 1].value) {
-          temp = arr[j].value
-          arr[j].value = arr[j + 1].value
-          arr[j + 1].value = temp
-        }
         await new Promise((r) => setTimeout(r, delay))
-        setData(Array.from(arr))
-        document.querySelector(`#${arr[j].index}`).classList.remove("selected")
-        document.querySelector(`#${arr[j + 1].index}`).classList.remove("selected")
+        if (arr[j].value < arr[min].value) {
+          document.querySelector(`#${arr[min].index}`).classList.remove("selected")
+          min = j
+          document.querySelector(`#${arr[min].index}`).classList.add("selected")
+        }
+        if (j != min) {
+          document.querySelector(`#${arr[j].index}`).classList.remove("selected")
+        }
       }
+      temp = arr[i].value
+      arr[i].value = arr[min].value
+      arr[min].value = temp
+      await new Promise((r) => setTimeout(r, delay))
+      setData(Array.from(arr))
+      document.querySelector(`#${arr[min].index}`).classList.remove("selected")
+      // document.querySelector(`#${arr[j].index}`).classList.remove("selected")
     }
+    console.log(arr)
   }
 
   const setDelayTime = (e) => {
@@ -44,11 +56,11 @@ export default function BubbleSort() {
   useEffect(() => {
     console.log(data)
     console.log(delay)
-  }, [data])
+  }, [delay])
 
   useEffect(() => {
-    let temp = []
-    for (let i = 0; i < size; i++) {
+    var temp = []
+    for (var i = 0; i < size; i++) {
       temp.push({
         index: "item-" + i,
         value: Math.floor(Math.random() * (1000 - 10 + 1) + 10)
@@ -56,10 +68,11 @@ export default function BubbleSort() {
     }
     setData(Array.from(temp))
   }, [size])
+
   return (
-    <div className={styles.bubbleSort}>
+    <div className={styles.selectionSort}>
       <div className="container">
-        <h1>Bubble Sort</h1>
+        <h1>Selection Sort</h1>
         <section>
           <form>
             <div className="form-group">
