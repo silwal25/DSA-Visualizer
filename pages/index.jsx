@@ -30,17 +30,10 @@ export default function Home() {
       <div className="container">
         <div className={styles.grid}>
           {dataStr.map((item) => (
-            <Cards data={item} />
+            <Cards data={item} key={Math.random() * 100} />
           ))}
         </div>
       </div>
-      <style jsx>
-        {`
-          .card-custom {
-            background-color: red;
-          }
-        `}
-      </style>
     </div>
   )
 }
