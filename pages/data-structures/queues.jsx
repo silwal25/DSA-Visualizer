@@ -1,4 +1,4 @@
-import styles from "../styles/pages/Queues.module.scss"
+import styles from "../../styles/pages/Queues.module.scss"
 import { useState, useEffect, useRef } from "react"
 
 export default function Queues() {
@@ -11,6 +11,12 @@ export default function Queues() {
 
   const enqueue = (e) => {
     e.preventDefault()
+
+    // Checking for empty value
+    if (!inputRef.current.value) {
+      alert("Please enter a value")
+      return
+    }
     if (front == -1 && rear == -1) {
       setFront(0)
       setRear(0)

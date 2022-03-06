@@ -1,4 +1,4 @@
-import styles from "../styles/pages/Stacks.module.scss"
+import styles from "../../styles/pages/Stacks.module.scss"
 import { useState, useEffect, useRef } from "react"
 import next from "next"
 
@@ -10,8 +10,15 @@ export default function Stacks() {
   var i = 0
   const stackPush = (e) => {
     e.preventDefault()
-    // Checking for overflow
+
+    // Checking for empty value
+    if (!inputRef.current.value) {
+      alert("Please enter a value")
+      return
+    }
+
     if (top < data.length - 1) {
+      // Checking for overflow
       setTop(top + 1)
     } else {
       alert("Stack overflow")
@@ -79,6 +86,7 @@ export default function Stacks() {
   return (
     <div className={styles.stacks}>
       <div className="container">
+        <h1>Stacks Data structures</h1>
         <form className={styles.form}>
           <div className="form-group">
             <input type="text" id="input" ref={inputRef} placeholder="Enter value" />

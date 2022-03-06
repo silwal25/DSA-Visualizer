@@ -1,4 +1,4 @@
-import styles from "../styles/pages/LinkedList.module.scss"
+import styles from "../../styles/pages/LinkedList.module.scss"
 
 import { useState, useEffect, useRef } from "react"
 import next from "next"
@@ -119,6 +119,10 @@ export default function LinkedList() {
 
   const addElement = (e) => {
     e.preventDefault()
+    if (!inputRef.current.value) {
+      alert("Please enter a value to insert in the list")
+      return
+    }
     l1.current.add(inputRef.current.value)
     setData(l1.current.print())
   }
@@ -138,12 +142,24 @@ export default function LinkedList() {
 
   const deleteAt = (e) => {
     e.preventDefault()
+    if (!inputRef2.current.value) {
+      alert("Please enter a value to remove from the list")
+      return
+    }
     l1.current.removeAt(inputRef2.current.value)
     setData(l1.current.print())
   }
 
   const insertAt = (e) => {
     e.preventDefault()
+    if (!inputRef3.current.value) {
+      alert("Please enter a node index to insert at")
+      return
+    }
+    if (!inputRef4.current.value) {
+      alert("Please enter a value for the node")
+      return
+    }
     l1.current.insertAt(inputRef3.current.value, inputRef4.current.value)
     setData(l1.current.print())
   }

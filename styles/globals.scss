@@ -48,6 +48,15 @@ form {
   flex-direction: column;
 }
 
+h1 {
+  text-transform: capitalize;
+  margin-bottom: 5rem;
+}
+
+section {
+  margin-bottom: 8rem;
+}
+
 .container {
   max-width: 114rem;
   margin: 0 auto;
@@ -57,4 +66,8 @@ form {
   display: flex;
   gap: 2rem;
   margin-bottom: 2rem;
+}
+
+.selected {
+  background-color: #054a91 !important;
 }
