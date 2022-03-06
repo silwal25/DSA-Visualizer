@@ -1,0 +1,17 @@
+.header {
+  padding: 2rem 0;
+  background-color: #054a91;
+  a {
+    text-decoration: none;
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+}

@@ -1,49 +1,46 @@
 import styles from "../styles/pages/Home.module.scss"
-import { CardGroup, Card } from "react-bootstrap"
 import Link from "next/link"
 
 import Header from "../components/Header/Header"
+import Cards from "../components/Cards/Cards"
 
 export default function Home() {
+  const dataStr = [
+    {
+      title: "Stacks",
+      text: "Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).",
+      image: "",
+      link: "/stacks"
+    },
+    {
+      title: "Queues",
+      text: "A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO). In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added.",
+      image: "",
+      link: "/queues"
+    },
+    {
+      title: "Linked Lists",
+      text: "A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers",
+      image: "",
+      link: "/linked-list"
+    }
+  ]
   return (
     <div className={styles.home + " mt-5"}>
       <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <Link href="/stacks">
-              <a>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Stacks</Card.Title>
-                  </Card.Body>
-                </Card>
-              </a>
-            </Link>
-          </div>
-          <div className="col-md-4">
-            <Link href="/queues">
-              <a>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Queues</Card.Title>
-                  </Card.Body>
-                </Card>
-              </a>
-            </Link>
-          </div>
-          <div className="col-md-4">
-            <Link href="/linked-list">
-              <a>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Linked Lists</Card.Title>
-                  </Card.Body>
-                </Card>
-              </a>
-            </Link>
-          </div>
+        <div className={styles.grid}>
+          {dataStr.map((item) => (
+            <Cards data={item} />
+          ))}
         </div>
       </div>
+      <style jsx>
+        {`
+          .card-custom {
+            background-color: red;
+          }
+        `}
+      </style>
     </div>
   )
 }

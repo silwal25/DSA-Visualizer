@@ -21,13 +21,16 @@
 
 .nodes {
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   & > div {
     display: flex;
-    img {
-      width: 4rem;
-      padding: 0 0.5rem;
-    }
+    flex-direction: column;
+  }
+  img {
+    width: 4rem;
+    padding: 0 0.5rem;
+    justify-self: start;
+    align-self: 20%;
   }
 }
 .index {

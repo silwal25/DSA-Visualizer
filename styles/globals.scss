@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 *,
 *::before,
 *::after {
@@ -10,7 +12,7 @@ html {
 }
 
 body {
-  //font-family: 'Varela', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 1.6rem !important;
   line-height: 1.5;
@@ -18,4 +20,41 @@ body {
 
 main {
   padding: 5rem 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  background-color: #e8f1f2;
+  border: 1px solid #050505;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  padding: 1rem 3rem !important;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  border: 1px solid #050505;
+  border-radius: 0.5rem;
+  padding: 1rem 3rem !important;
+  &::placeholder {
+    font-size: 1.6rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
