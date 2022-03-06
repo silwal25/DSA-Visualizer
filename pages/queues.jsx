@@ -92,10 +92,12 @@ export default function Queues() {
     <div className={styles.queues}>
       <div className="container">
         <form className={styles.form}>
-          <input type="text" id="input" ref={inputRef} placeholder="Enter value" />
-          <button onClick={enqueue}>Enqueue</button>
-          <button onClick={dequeue}>Dequeue</button>
-          <button onClick={clearQueue}>clear queue</button>
+          <div className="form-group">
+            <input type="text" id="input" ref={inputRef} placeholder="Enter value" />
+            <button onClick={enqueue}>Enqueue</button>
+            <button onClick={dequeue}>Dequeue</button>
+            <button onClick={clearQueue}>clear queue</button>
+          </div>
         </form>
         <div className={styles.info}>
           <div className={styles.frontNode}>

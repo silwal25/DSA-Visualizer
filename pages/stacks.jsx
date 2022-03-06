@@ -80,10 +80,12 @@ export default function Stacks() {
     <div className={styles.stacks}>
       <div className="container">
         <form className={styles.form}>
-          <input type="text" id="input" ref={inputRef} placeholder="Enter value" />
-          <button onClick={stackPush}>Push</button>
-          <button onClick={stackPop}>pop</button>
-          <button onClick={stackClear}>clear stack</button>
+          <div className="form-group">
+            <input type="text" id="input" ref={inputRef} placeholder="Enter value" />
+            <button onClick={stackPush}>Push</button>
+            <button onClick={stackPop}>pop</button>
+            <button onClick={stackClear}>clear stack</button>
+          </div>
         </form>
         <p>Top</p>
         <div
